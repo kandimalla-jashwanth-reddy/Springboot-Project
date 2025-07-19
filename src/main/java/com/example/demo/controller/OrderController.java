@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.demo.Order;
-import com.example.demo.demo.OrderItem;
-import com.example.demo.demo.User;
+import com.example.demo.entites.Order;
+import com.example.demo.entites.OrderItem;
+import com.example.demo.entites.User;
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

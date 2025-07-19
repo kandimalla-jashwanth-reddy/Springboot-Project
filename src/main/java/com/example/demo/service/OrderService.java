@@ -2,10 +2,10 @@ package com.example.demo.service;
 
 
 
-import com.example.demo.demo.Order;
-import com.example.demo.demo.OrderItem;
-import com.example.demo.demo.User;
-import com.example.demo.demo.Book;
+import com.example.demo.entites.Order;
+import com.example.demo.entites.OrderItem;
+import com.example.demo.entites.User;
+import com.example.demo.entites.Book;
 import com.example.demo.repository.OrderItemRepository;
 import com.example.demo.repository.OrderRepository;
 import com.example.demo.repository.BookRepository;

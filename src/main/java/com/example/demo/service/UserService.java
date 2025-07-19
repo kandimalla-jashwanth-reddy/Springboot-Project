@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 
-import com.example.demo.demo.User;
+import com.example.demo.entites.User;
 
 public interface UserService {
     User saveUser(User user);

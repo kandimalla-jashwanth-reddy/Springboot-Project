@@ -1,8 +1,7 @@
-package com.example.demo.demo;
+package com.example.demo.entites;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 

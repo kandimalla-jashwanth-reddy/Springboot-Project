@@ -1,9 +1,9 @@
 package com.example.demo.service;
 
 
-import com.example.demo.demo.Book;
-import com.example.demo.demo.Review;
-import com.example.demo.demo.User;
+import com.example.demo.entites.Book;
+import com.example.demo.entites.Review;
+import com.example.demo.entites.User;
 import com.example.demo.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

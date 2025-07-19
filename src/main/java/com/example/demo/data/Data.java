@@ -1,12 +1,11 @@
 package com.example.demo.data;
-import com.example.demo.demo.*;
+import com.example.demo.entites.*;
 import com.example.demo.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
-import java.util.List;
+
 public class Data
 {
     @Bean
