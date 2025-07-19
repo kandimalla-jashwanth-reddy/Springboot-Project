@@ -2,6 +2,7 @@ package com.example.demo.demo;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 
@@ -18,6 +19,7 @@ public class Book {
     private String title;
     private String author;
     private Double price;
+
 
     private String isbn; // ✅ Required for setIsbn()
     private String description;
