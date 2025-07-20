@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Data
 {
@@ -54,7 +55,7 @@ public class Data
             // Create order
             Order order = new Order();
             order.setUser(user);
-            order.setOrderDate(LocalDate.now());
+            order.setOrderDate(LocalDateTime.from(LocalDate.now()));
             order = orderRepo.save(order);
 
             OrderItem item = new OrderItem();
