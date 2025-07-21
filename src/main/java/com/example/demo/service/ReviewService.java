@@ -4,6 +4,7 @@ package com.example.demo.service;
 import com.example.demo.entites.Book;
 import com.example.demo.entites.Review;
 import com.example.demo.entites.User;
+import com.example.demo.repository.BookRepository;
 import com.example.demo.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +17,16 @@ public interface ReviewService {
 }
 
 @Service
-class ReviewServiceImpl implements ReviewService {
+ class ReviewServiceImpl implements ReviewService {
+
+    private final ReviewRepository reviewRepository;
+    private final BookRepository bookRepository;
 
     @Autowired
-    private ReviewRepository reviewRepository;
+    public ReviewServiceImpl(ReviewRepository reviewRepository, BookRepository bookRepository) {
+        this.reviewRepository = reviewRepository;
+        this.bookRepository = bookRepository;
+    }
 
     @Override
     public Review addReview(User user, Book book, Review review) {
@@ -30,8 +37,8 @@ class ReviewServiceImpl implements ReviewService {
 
     @Override
     public List<Review> getReviewsForBook(Long bookId) {
-        Book book = new Book();
-        book.setId(bookId);
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new RuntimeException("Book not found"));
         return reviewRepository.findByBook(book);
     }
 }

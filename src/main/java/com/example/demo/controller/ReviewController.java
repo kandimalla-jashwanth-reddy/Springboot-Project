@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.entites.Book;
 import com.example.demo.entites.Review;
 import com.example.demo.entites.User;
+import com.example.demo.service.BookService;
 import com.example.demo.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +14,21 @@ import java.util.List;
 @RequestMapping("/api/reviews")
 public class ReviewController {
 
+    private final ReviewService reviewService;
+    private final BookService bookService;
+
     @Autowired
-    private ReviewService reviewService;
+    public ReviewController(ReviewService reviewService, BookService bookService) {
+        this.reviewService = reviewService;
+        this.bookService = bookService;
+    }
 
     @PostMapping("/{bookId}/add")
     public Review addReview(@PathVariable Long bookId, @RequestBody Review review) {
-        User user = review.getUser();
-        Book book = new Book();
-        book.setId(bookId);
+        Book book = bookService.getBookById(bookId)
+                .orElseThrow(() -> new RuntimeException("Book not found with id: " + bookId));
+
+        User user = review.getUser(); // Make sure user is properly set in the request
         return reviewService.addReview(user, book, review);
     }
 

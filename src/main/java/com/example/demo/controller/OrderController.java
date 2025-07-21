@@ -30,7 +30,7 @@ public class OrderController {
 
     // ✅ Place an order using userId and list of bookIds
     @PostMapping("/place-by-ids")
-    public ResponseEntity<List<String>> placeOrderByIds(
+    public ResponseEntity<List<String>> placeOrerByIds(
             @RequestParam Long userId,
             @RequestBody List<Long> bookIds
     ) {
